@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
       table
         .string('password', 255)
         .notNullable();
-      table.string('department', 255);
+      table.string('department', 255).defaultTo('none');
   })
 };
 
