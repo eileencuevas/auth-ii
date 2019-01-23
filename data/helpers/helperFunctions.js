@@ -15,6 +15,10 @@ const login = credentials => {
         .first();
 }
 
+const getUsers = () => {
+    return db('users');
+}
+
 const generateToken = user => {
     const payload = {
         userId: user.id,
@@ -32,5 +36,6 @@ const generateToken = user => {
 module.exports = {
     registerUser,
     login,
+    getUsers,
     generateToken,
 }

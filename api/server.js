@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const middleware = require('./config/middleware');
 const helpers = require('../data/helpers/helperFunctions');
+const restricted = require('./middleware/restrictedMiddleware');
 
 const server = express();
 
@@ -41,6 +42,19 @@ server.post('/api/login/', (req, res) => {
         .catch(() => {
             res.status(500).json({ 
                 error: `Couldn't log in. Please try again.` 
+            })
+        });
+})
+
+server.get('/api/users', restricted, (req, res) => {
+    helpers
+        .getUsers()
+        .then(users => {
+            res.status(200).json(users);
+        })
+        .catch(() => {
+            res.status(500).json({ 
+                error: `Couldn't get users. Please try again.` 
             })
         });
 })
