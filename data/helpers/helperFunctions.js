@@ -16,6 +16,7 @@ const login = credentials => {
 }
 
 const getUsers = () => {
+    
     return db('users');
 }
 

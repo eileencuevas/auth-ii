@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const middleware = require('./config/middleware');
 const helpers = require('../data/helpers/helperFunctions');
-const restricted = require('./middleware/restrictedMiddleware');
+// const restricted = require('./middleware/restrictedMiddleware');
 
 const server = express();
 
@@ -46,7 +46,7 @@ server.post('/api/login/', (req, res) => {
         });
 })
 
-server.get('/api/users', restricted, (req, res) => {
+server.get('/api/users/', restricted, (req, res) => {
     helpers
         .getUsers()
         .then(users => {
