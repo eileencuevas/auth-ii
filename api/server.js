@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const middleware = require('./config/middleware');
 const helpers = require('../data/helpers/helperFunctions');
-// const restricted = require('./middleware/restrictedMiddleware');
+const restricted = require('./middleware/restrictedMiddleware');
 
 const server = express();
 
