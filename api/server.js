@@ -36,7 +36,7 @@ server.post('/api/login/', (req, res) => {
                 res.status(401).json({ message: 'You shall not pass!' });
             } else {
                 const token = helpers.generateToken(user);
-                res.status(200).send(token);
+                res.status(200).json(token);
             }
         })
         .catch(() => {
